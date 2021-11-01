@@ -1,0 +1,17 @@
+// normalize default styles
+@import "partials/normalize";
+
+// Bootstrap
+@import "bootstrap/functions";
+@import "bootstrap/variables";
+@import "bootstrap/mixins";
+@import "bootstrap/utilities";
+@import "bootstrap/grid";
+
+// variables
+@import "partials/variables";
+
+// common styles
+@import "partials/layout";
+@import "partials/global";
+@import "partials/typography";
