@@ -1,99 +1,55 @@
-// Header
-
-.header {
-    max-width: 100%;
-    max-height: 100vh;
+[class^='section-'] {
+    width: 100%;
+    margin: 10px auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     position: relative;
-    text-transform: uppercase;
 
     img {
         width: 100%;
-        height: 100vh;
+        height: fit-content;
         object-fit: cover;
         z-index: -1;
     }
-    .nav-bar {
-        position: absolute;
-        top: 0;
-        left: 20%;
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: space-between;
-        color: $color-light;
-        font-weight: $font-weight-black;
-        width: 60%;
+
+    .title-section {
+        width: 50%;
         margin: 2rem auto;
+        align-self: flex-start;
+        border-bottom: 3px solid $color-main;
+        text-align: center;
 
-        .nav-logo {
-            align-self: flex-start;
-            text-align: left;
-
-            .nav-logo-top {
-                font-size: 3rem;
-                margin: 0;
-            }
-            .nav-logo-bottom {
-                font-size: 1rem;
-                margin: 0;
-            }
+        .title-section-text {
+            font-size: 3rem;
         }
-        .nav-list {
-            align-self: flex-end;
-            display: flex;
-            justify-content: space-between;
-
-            li {
-                display: inline-block;
-            }
-            a {
-                text-decoration: none;
-                font-size: 1.5rem;
-                margin: auto 1rem;
-                color: $color-light;
-            }
-        }
-
     }
-    .header-main-text {
-        position: absolute;
-        top: 35%;
-        left: 20%;
+}
+
+.product-card {
+    width: 768px;
+    margin: 1rem auto;
+    flex-direction: row-reverse;
+
+    .card-image {
+
+        img {
+            object-fit: cover;
+        }
+    }
+
+    .card-details {
         display: flex;
         flex-direction: column;
-        justify-content: space-between;
-        color: $color-light;
-        font-weight: $font-weight-black;
-        width: 60%;
-        height: 30%;
-        margin: 0;
-        
-        h1 {
-            font-size: 6rem;
-            color: $color-main;
-            margin: 0;
-        }
-        .header-main-text-left {
-            text-align: left;
-        }
-        .header-main-text-right {
-            text-align: right;
-        }
-        p {
-            margin: 2rem auto 0 auto;
-            width: 25%;
-            border-bottom: 1rem solid $color-main;
-        }
     }
-    .header-bottom {
+}
+
+.section-about {
+
+    img {
+        object-fit: cover;
         position: absolute;
-        bottom: 0;
+        top: 0;
         left: 0;
-        color: $color-light;
-        width: 100%;
-        text-align: center;
-        margin: 0 auto 1rem auto;
-        font-size: 2rem;
-        font-weight: $font-weight-regular;
     }
 }
