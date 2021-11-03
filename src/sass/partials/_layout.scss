@@ -1,126 +1,124 @@
 [class^='section-'] {
-    width: 100%;
-    margin: 2rem auto;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    position: relative;
+  width: 100%;
+  margin: 2rem auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
 
-    .title-section {
-        width: 50%;
-        margin: 5rem auto;
-        align-self: flex-start;
-        border-bottom: 3px solid $color-main;
-        text-align: center;
+  .title-section {
+    width: 50%;
+    margin: 5rem auto;
+    align-self: flex-start;
+    border-bottom: 3px solid $color-main;
+    text-align: center;
 
-        .title-section-text {
-            font-size: 4vw;
-            font-weight: $font-weight-bold;
-            letter-spacing: 6px;
-            margin-top: 3rem;
-            margin-bottom: 3rem;
-        }
+    .title-section-text {
+      font-size: 4vw;
+      font-weight: $font-weight-bold;
+      letter-spacing: 6px;
+      margin-top: 3rem;
+      margin-bottom: 3rem;
     }
+  }
 }
 
 .product-card {
-    width: 70%;
-    max-width: 70%;
-    margin: 1rem auto;
-    flex-direction: row-reverse;
+  width: 70%;
+  max-width: 70%;
+  margin: 1rem auto;
+  flex-direction: row-reverse;
 
-    .card-image {
-
-        img {
-            object-fit: cover;
-            max-width: 100%;
-            max-height: 100%;
-        }
+  .card-image {
+    img {
+      object-fit: cover;
+      max-width: 100%;
+      max-height: 100%;
     }
+  }
 
-    .card-details {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-around;
-    }
+  .card-details {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+  }
 }
 
 .section-about {
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    filter: brightness(20%);
+  }
 
-    img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        position: absolute;
-        top: 0;
-        left: 0;
-        z-index: -1;
-        filter: brightness(20%);
+  .section-about-wrapper {
+    max-width: 50%;
+    margin: 0 auto;
+
+    [class^='about-text-'] {
+      width: 100%;
+      margin: 1.5rem 0;
     }
-
-    .section-about-wrapper {
-        max-width: 50%;
-        margin: 0 auto;
-
-        [class^='about-text-'] {
-            width: 100%;
-            margin: 1.5rem 0;
-        }
-    }
+  }
 }
 
 .footer {
-    max-width: 100%;
-    text-align: center;
+  max-width: 100%;
+  text-align: center;
     
-    .footer-text {
-        font-size: 1.3vw;
-    }
+  .footer-text {
+    font-size: 1.3vw;
+  }
 }
 
 .contact-widget {
+  margin: 0 auto;
+
+  form {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
     margin: 0 auto;
+    width: 100%;
 
-    form {
-        display: flex;
-        flex-direction: column;
-        flex-wrap: nowrap;
-        margin: 0 auto;
-        width: 100%;
-
-        label {
-            margin: 1rem auto;
-            text-transform: uppercase;
-            font-size: 1.5vw;
-            font-weight: $font-weight-bold;
-            letter-spacing: 2px;
-        }
-
-        input {
-            width: 300px;
-            height: 50px;
-            border: 2px solid $color-dark;
-        }
-
-        textarea {
-            width: 300px;
-            height: 100px;
-            border: 2px solid $color-dark;
-        }
-
-        button {
-            margin: 2rem auto;
-            text-transform: uppercase;
-            font-size: 1.5vw;
-            font-weight: $font-weight-bold;
-            width: fit-content;
-            height: fit-content;
-            padding: 5% 8%;
-            letter-spacing: 2px;
-            background-color: $color-main;
-            color: $color-light;
-            text-decoration: none;
-            border: none;
-        }
+    label {
+      margin: 1rem auto;
+      text-transform: uppercase;
+      font-size: 1.5vw;
+      font-weight: $font-weight-bold;
+      letter-spacing: 2px;
     }
+
+    input {
+      width: 300px;
+      height: 50px;
+      border: 2px solid $color-dark;
+    }
+
+    textarea {
+      width: 300px;
+      height: 100px;
+      border: 2px solid $color-dark;
+    }
+
+    button {
+      margin: 2rem auto;
+      text-transform: uppercase;
+      font-size: 1.5vw;
+      font-weight: $font-weight-bold;
+      width: fit-content;
+      height: fit-content;
+      padding: 5% 8%;
+      letter-spacing: 2px;
+      background-color: $color-main;
+      color: $color-light;
+      text-decoration: none;
+      border: none;
+    }
+  }
 }

@@ -1,88 +1,81 @@
 .card-image {
-
-    img {
-        box-shadow: 0 0 1rem $color-dark;
-    }
+  img {
+    box-shadow: 0 0 1rem $color-dark;
+  }
 }
 
 [class^='about-text-'] {
-    font-size: 2vw;
-    color: $color-light;
-    font-style: italic;
+  font-size: 2vw;
+  color: $color-light;
+  font-style: italic;
 }
 
 .about-text-left {
-    text-align: left;
+  text-align: left;
 }
 
 .about-text-right {
-    text-align: right;
+  text-align: right;
 }
 
 .title-section-text {
-    color: $color-main;
-    text-transform: uppercase;
+  color: $color-main;
+  text-transform: uppercase;
 }
 
 .card-details {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 
-    .item-name {
+  .item-name {
+    font-size: 1.5vw;
+    text-transform: uppercase;
+    margin: 1rem auto;
+
+    h1 {
+      span {
+        font-weight: $font-weight-bold;
+        letter-spacing: 2px;
+      }
+    }
+  }
+
+  .item-description {
+    .item-description-line {
+      border-top: 3px solid $color-main;
+    }
+
+    .item-description-text {
+      text-align: left;
+      font-weight: $font-weight-semi-bold;
+    }
+  }
+
+  .item-specification {
+    .item-specification-rates {
+      display: flex;
+      flex-direction: column;
+      flex-wrap: wrap;
+
+      p {
+        font-weight: $font-weight-black;
         font-size: 1.5vw;
         text-transform: uppercase;
-        margin: 1rem auto;
-
-        h1 {
-            
-            span {
-                font-weight: $font-weight-bold;
-                letter-spacing: 2px;
-            }
-        }
+      }
     }
 
-    .item-description {
+    .MPimage {
+      margin: 0 auto;
 
-        .item-description-line {
-            border-top: 3px solid $color-main;
-        }
-
-        .item-description-text {
-            text-align: left;
-            font-weight: $font-weight-semi-bold;
-        }
+      img {
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+      }
     }
+  }
+}
 
-    .item-specification {
-
-        .item-specification-rates {
-            display: flex;
-            flex-direction: column;
-            flex-wrap: wrap;
-
-            p {
-                font-weight: $font-weight-black;
-                font-size: 1.5vw;
-
-                .rate-type {
-                    text-transform: uppercase;
-                }
-
-                .roasting, .intensity {
-                    color: $color-main;
-                }
-            }
-        }
-
-        .MPimage {
-            margin: 0 auto;
-
-            img {
-                object-fit: cover;
-                width: 100%;
-                height: 100%;
-            }
-        }
-    }
+.roasting, .intensity {
+  color: $color-main;
 }
