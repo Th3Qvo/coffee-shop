@@ -1,27 +1,24 @@
 [class^='section-'] {
     width: 100%;
-    margin: 10px auto;
+    margin: 2rem auto;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     position: relative;
 
-    img {
-        width: 100%;
-        height: fit-content;
-        object-fit: cover;
-        z-index: -1;
-    }
-
     .title-section {
         width: 50%;
-        margin: 2rem auto;
+        margin: 5rem auto;
         align-self: flex-start;
         border-bottom: 3px solid $color-main;
         text-align: center;
 
         .title-section-text {
-            font-size: 3rem;
+            font-size: 5rem;
+            font-weight: $font-weight-bold;
+            letter-spacing: 6px;
+            margin-top: 3rem;
+            margin-bottom: 3rem;
         }
     }
 }
@@ -35,21 +32,47 @@
 
         img {
             object-fit: cover;
+            max-width: 100%;
+            max-height: 100%;
         }
     }
 
     .card-details {
         display: flex;
         flex-direction: column;
+        justify-content: space-around;
     }
 }
 
 .section-about {
 
     img {
+        width: 100%;
+        height: 100%;
         object-fit: cover;
         position: absolute;
         top: 0;
         left: 0;
+        z-index: -1;
+        filter: brightness(20%);
+    }
+
+    .section-about-wrapper {
+        max-width: 50%;
+        margin: 0 auto;
+
+        [class^='about-text-'] {
+            width: 100%;
+            margin: 1.5rem 0;
+        }
+    }
+}
+
+.footer {
+    max-width: 100%;
+    text-align: center;
+    
+    .footer-text {
+        font-size: 1rem;
     }
 }

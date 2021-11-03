@@ -4,3 +4,71 @@
         box-shadow: 0 0 1rem $color-dark;
     }
 }
+
+[class^='about-text-'] {
+    font-size: 2rem;
+    color: $color-light;
+    font-style: italic;
+}
+
+.about-text-left {
+    text-align: left;
+}
+
+.about-text-right {
+    text-align: right;
+}
+
+.title-section-text {
+    color: $color-main;
+    text-transform: uppercase;
+}
+
+.card-details {
+    display: flex;
+    flex-direction: column;
+
+    .item-name {
+        font-size: 1.5rem;
+        text-transform: uppercase;
+
+        h1 {
+            
+            span {
+                font-weight: $font-weight-bold;
+                letter-spacing: 2px;
+            }
+        }
+    }
+
+    .item-description {
+
+        .item-description-line {
+            border-top: 3px solid $color-main;
+        }
+
+        .item-description-text {
+            text-align: left;
+            font-weight: $font-weight-semi-bold;
+        }
+    }
+
+    .item-specification {
+
+        .item-specification-rates {
+
+            p {
+                font-weight: $font-weight-black;
+                font-size: 1.1rem;
+
+                .rate-type {
+                    text-transform: uppercase;
+                }
+
+                .roasting, .intensity {
+                    color: $color-main;
+                }
+            }
+        }
+    }
+}
