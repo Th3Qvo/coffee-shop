@@ -77,3 +77,50 @@
         font-size: 1.3vw;
     }
 }
+
+.contact-widget {
+    margin: 0 auto;
+
+    form {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        margin: 0 auto;
+        width: 100%;
+
+        label {
+            margin: 1rem auto;
+            text-transform: uppercase;
+            font-size: 1.5vw;
+            font-weight: $font-weight-bold;
+            letter-spacing: 2px;
+        }
+
+        input {
+            width: 300px;
+            height: 50px;
+            border: 2px solid $color-dark;
+        }
+
+        textarea {
+            width: 300px;
+            height: 100px;
+            border: 2px solid $color-dark;
+        }
+
+        button {
+            margin: 2rem auto;
+            text-transform: uppercase;
+            font-size: 1.5vw;
+            font-weight: $font-weight-bold;
+            width: fit-content;
+            height: fit-content;
+            padding: 5% 8%;
+            letter-spacing: 2px;
+            background-color: $color-main;
+            color: $color-light;
+            text-decoration: none;
+            border: none;
+        }
+    }
+}
