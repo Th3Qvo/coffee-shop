@@ -14,7 +14,7 @@
         text-align: center;
 
         .title-section-text {
-            font-size: 5rem;
+            font-size: 4vw;
             font-weight: $font-weight-bold;
             letter-spacing: 6px;
             margin-top: 3rem;
@@ -24,7 +24,8 @@
 }
 
 .product-card {
-    width: 768px;
+    width: 70%;
+    max-width: 70%;
     margin: 1rem auto;
     flex-direction: row-reverse;
 
@@ -73,6 +74,6 @@
     text-align: center;
     
     .footer-text {
-        font-size: 1rem;
+        font-size: 1.3vw;
     }
 }
