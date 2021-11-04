@@ -41,29 +41,6 @@
             <div class="title-section">
                 <h1 class="title-section-text">products</h1>
             </div>
-            <div class="row product-card">
-                <div class="col-sm-6 card-image">
-                    <img src="images/coffee-1.png" alt="">
-                </div>
-                <div class="col-sm-6 card-details">
-                    <div class="row item-name">
-                        <h1 class="col-sm-12"><span class="no">01.</span> <span class="name">la lagartija</span></h1>
-                    </div>
-                    <div class="row item-description">
-                        <p class="col-sm-4 item-description-line"></p>
-                        <p class="col-sm-8 item-description-text">Mysterious and treacherous... The best choice for the start of your journey! It will provide you a rich delicious flavor.</p>
-                    </div>
-                    <div class="row item-specification">
-                        <div class="col-sm-6 item-specification-rates">
-                            <p class=""><span class="rate-type">ROASTING:</span> <span class="roasting">5/10</span></p>
-                            <p class=""><span class="rate-type">INTENSITY:</span> <span class="intensity">6/10</span></p>
-                        </div>
-                        <div class="col-sm-6 MPimage">
-                            <img src="images/MPimageSMALL.png" alt="">
-                        </div>
-                    </div>
-                </div>
-            </div>
         </section>
         <section class="section-about active" id="home">
             <img src="images/about-us.jpg" alt="">
@@ -97,7 +74,36 @@
         <p class="footer-text">© EL TIGRE inc.</p>
     </footer>
 
+    <script id="product-card" type="text/x-handlebars-template">
+        {{#each products}}
+        <div class="row product-card">
+                <div class="col-sm-6 card-image">
+                    {{ images }}
+                </div>
+                <div class="col-sm-6 card-details">
+                    <div class="row item-name">
+                        <h1 class="col-sm-12"><span class="no">{{ no }}</span> <span class="name">{{ name }}</span></h1>
+                    </div>
+                    <div class="row item-description">
+                        <p class="col-sm-4 item-description-line"></p>
+                        <p class="col-sm-8 item-description-text">{{ description }}</p>
+                    </div>
+                    <div class="row item-specification">
+                        <div class="col-sm-6 item-specification-rates">
+                            <p class=""><span class="rate-type">ROASTING:</span> <span class="roasting">{{ roasting }}</span></p>
+                            <p class=""><span class="rate-type">INTENSITY:</span> <span class="intensity">{{ intensity }}</span></p>
+                        </div>
+                        <div class="col-sm-6 MPimage">
+                            {{ most-popular }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {{/each}}
+    </script>
+
     <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
+    <!--<script src="js/settings.js" type="module"></script>-->
     <script src="js/script.js" type="module"></script>
 </body>
 </html>
