@@ -74,8 +74,7 @@
         <p class="footer-text">© EL TIGRE inc.</p>
     </footer>
 
-    <script id="product-card" type="text/x-handlebars-template">
-        {{#each products}}
+    <script id="product-coffee-one" type="text/x-handlebars-template">
         <div class="row product-card">
                 <div class="col-sm-6 card-image">
                     {{ images }}
@@ -97,12 +96,37 @@
                             {{ most-popular }}
                         </div>
                     </div>
-                </div>
-            </div>
-        {{/each}}
+             </div>
+        </div>
     </script>
 
-    <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
+    <script id="product-coffee-two" type="text/x-handlebars-template">
+        <div class="row product-card">
+                <div class="col-sm-6 card-image">
+                    {{ images }}
+                </div>
+                <div class="col-sm-6 card-details">
+                    <div class="row item-name">
+                        <h1 class="col-sm-12"><span class="no">{{ no }}</span> <span class="name">{{ name }}</span></h1>
+                    </div>
+                    <div class="row item-description">
+                        <p class="col-sm-4 item-description-line"></p>
+                        <p class="col-sm-8 item-description-text">{{ description }}</p>
+                    </div>
+                    <div class="row item-specification">
+                        <div class="col-sm-6 item-specification-rates">
+                            <p class=""><span class="rate-type">ROASTING:</span> <span class="roasting">{{ roasting }}</span></p>
+                            <p class=""><span class="rate-type">INTENSITY:</span> <span class="intensity">{{ intensity }}</span></p>
+                        </div>
+                        <div class="col-sm-6 MPimage">
+                            {{ most-popular }}
+                        </div>
+                    </div>
+             </div>
+        </div>
+    </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.7/handlebars.min.js" integrity="sha512-RNLkV3d+aLtfcpEyFG8jRbnWHxUqVZozacROI4J2F1sTaDqo1dPQYs01OMi1t1w9Y2FdbSCDSQ2ZVdAC8bzgAg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <!--<script src="js/settings.js" type="module"></script>-->
     <script src="js/script.js" type="module"></script>
 </body>
