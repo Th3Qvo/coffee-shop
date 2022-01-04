@@ -1,92 +1,90 @@
-/* global Handlebars, dataSource */
+import { utils } from './utils.js';
+import { settings, templates, select, classNames } from './settings.js';
 
-const utils = {}; // eslint-disable-line no-unused-vars
+class Product {
+  constructor(id, data){
+    const thisProduct = this;
+    thisProduct.id = id;
+    thisProduct.data = data;
 
-utils.createDOMFromHTML = function(htmlString) {
-  let div = document.createElement('div');
-  div.innerHTML = htmlString.trim();
-  return div.firstChild;
-};
-
-utils.createPropIfUndefined = function(obj, key, value = []){
-  if(!obj.hasOwnProperty(key)){
-    obj[key] = value;
+    thisProduct.render();
   }
-};
 
-utils.serializeFormToObject = function(form){
-  let output = {};
-  if (typeof form == 'object' && form.nodeName == 'FORM') {
-    for (let field of form.elements) {
-      if (field.name && !field.disabled && field.type != 'file' && field.type != 'reset' && field.type != 'submit' && field.type != 'button') {
-        if (field.type == 'select-multiple') {
-          for (let option of field.options) {
-            if(option.selected) {
-              utils.createPropIfUndefined(output, field.name);
-              output[field.name].push(option.value);
-            }
-          }
-        } else if ((field.type != 'checkbox' && field.type != 'radio') || field.checked) {
-          utils.createPropIfUndefined(output, field.name);
-          output[field.name].push(field.value);
-        } else if(!output[field.name]) output[field.name] = [];
+  render(){
+    const thisProduct = this;
+    const generatedHTML = templates.menuProduct(thisProduct.data);
+    thisProduct.element = utils.createDOMFromHTML(generatedHTML);
+    const menuContainer = document.querySelector(select.containerOf.menuProduct);
+    menuContainer.appendChild(thisProduct.element);
+  }
+}
+
+const app = {
+  init: function(){
+    const thisApp = this;
+    thisApp.initData();
+    thisApp.initPages();
+  },
+
+  initPages: function(){
+    const thisApp = this;
+    thisApp.pages = document.querySelector(select.containerOf.pages).children;
+    thisApp.navLinks = document.querySelectorAll(select.items.navLinks);
+    const idFromHash = window.location.hash.replace('#', '');
+    let pageMatchingHash = thisApp.pages[0].id;
+    for(let page of thisApp.pages){
+      if(page.id == idFromHash){
+        pageMatchingHash = page.id;
+        break;
       }
     }
-  }
-  return output;
+    thisApp.activatePage(pageMatchingHash);
+
+    for(let link of thisApp.navLinks){
+      link.addEventListener('click', function(event){
+        event.preventDefault();
+        const clickedItem = this;
+        const idFromHref = clickedItem.getAttribute('href').replace('#', '');
+        thisApp.activatePage(idFromHref);
+        window.location.hash = '/#' + idFromHref;
+      });
+    }
+  },
+
+  activatePage: function(pageId){
+    const thisApp = this;
+    for(let page of thisApp.pages){
+      page.classList.toggle(classNames.pages.active, page.id == pageId);
+    }
+    for(let link of thisApp.navLinks){
+      link.classList.toggle(
+        classNames.navLinks.active,
+        link.getAttribute('href') == '#' + pageId
+      );
+    }
+  },
+
+  initMenu: function(){
+    const thisApp = this;
+    for(let productData in thisApp.data.products){
+      console.log(thisApp.data.products[productData]);
+      new Product(thisApp.data.products[productData].id, thisApp.data.products[productData]);
+    }
+  },
+
+  initData: function(){
+    const thisApp = this;
+    thisApp.data = {};
+    const url = settings.db.url + '/' + settings.db.products;
+    fetch(url)
+      .then(function(rawResponse){
+        return rawResponse.json();
+      })
+      .then(function(parsedResponse){
+        thisApp.data.products = parsedResponse;
+        thisApp.initMenu();
+      });
+  },
 };
 
-utils.convertDataSourceToDbJson = function(){
-  const productJson = [];
-  for(let key in dataSource.products){
-    productJson.push(Object.assign({id: key}, dataSource.products[key]));
-  }
-
-  console.log(JSON.stringify({product: productJson, order: []}, null, '  '));
-};
-
-Handlebars.registerHelper('ifEquals', function(arg1, arg2, options) {
-  return (arg1 == arg2) ? options.fn(this) : options.inverse(this);
-});
-
-Handlebars.registerHelper('joinValues', function(input, options) {
-  return Object.values(input).join(options.fn(this));
-});
-
-
-const productInfo = document.getElementById('product-coffee-one').innerHTML;
-const template = Handlebars.compile(productInfo);
-const productData = template({
-  no: '01.',
-  name: 'LA LAGARTIJA',
-  roasting: '5/10',
-  intensity: '6/10',
-  description: 'Mysterious and treacherous... The best choice for the start of your journey! It will provide you a rich delicious flavor.',
-  images: utils.createDOMFromHTML('<img src="../../images/coffee-1.png alt="">'),
-});
-document.getElementById('products').innerHTML += productData;
-
-
-const showSection = function(id) {
-  const sections = document.querySelectorAll('main section');
-  for(let section of sections) {
-    section.classList.remove('active');
-  }
-  
-  const sectionToShow = document.querySelector('main ' + id);
-  sectionToShow.classList.add('active');
-};
-  
-const navigationInit = function() {
-  const buttons = document.querySelectorAll('.nav-list li a');
-  for(let button of buttons) {
-    button.addEventListener('click', function(event) {
-      event.preventDefault();
-  
-      const sectionToShowId = event.target.getAttribute('href');
-      showSection(sectionToShowId);
-    });
-  }
-};
-  
-navigationInit();
+app.init();

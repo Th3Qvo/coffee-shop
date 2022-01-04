@@ -60,6 +60,9 @@
         margin: auto 1rem;
         color: $color-light;
       }
+      a.active {
+        color: $color-main;
+      }
     }
   }
   
@@ -114,4 +117,4 @@
     font-weight: $font-weight-regular;
     letter-spacing: 3px;
   }
-}  
+}
